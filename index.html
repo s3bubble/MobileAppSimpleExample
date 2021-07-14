@@ -127,7 +127,12 @@
 				/**
 				 * GLOBALS - set you demo url here remove the trailing slash example: http://54.70.196.235
 				 */
-				var url = "http://54.70.196.235";
+				var url = "";
+
+				if (url === "") {
+					alert("You have not set you theme url in the code. Open this html file in a text editor and add your url!");
+					return;
+				}
 
 				/**
 				 * Checks if a token is set in local storage to determine if the user is logged in
