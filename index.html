@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Mobile App Example</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+		<link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet" />
+		<link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/blog/blog.css" />
+	</head>
+	<body>
+		<div class="container">
+			<header class="blog-header py-3">
+				<div class="row flex-nowrap justify-content-between align-items-center">
+					<div class="col-4 pt-1">
+						<a class="text-muted" href="https://s3bubble.com/" target="_blank">Subscribe</a>
+					</div>
+					<div class="col-4 text-center">
+						<a class="blog-header-logo text-dark" href="https://s3bubble.com/" target="_blank">Mobile App Example</a>
+					</div>
+					<div class="col-4 d-flex justify-content-end align-items-center">
+						<a class="text-muted" href="#">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3">
+								<circle cx="10.5" cy="10.5" r="7.5"></circle>
+								<line x1="21" y1="21" x2="15.8" y2="15.8"></line>
+							</svg>
+						</a>
+						<div class="logged_out">
+							<a class="btn btn-sm btn-outline-secondary logout">Logout</a>
+						</div>
+						<div class="logged_in">
+							<a class="btn btn-sm btn-outline-secondary mr-2" data-toggle="modal" data-target="#signupModal">Sign up</a>
+							<a class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#loginModal">Login</a>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<div class="nav-scroller py-1 mb-2">
+				<nav class="nav d-flex justify-content-between navigation"></nav>
+			</div>
+
+			<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark mb-3"></div>
+
+			<div class="row mb-2 main"></div>
+		</div>
+
+		<div class="modal" tabindex="-1" role="dialog" id="signupModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Register</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form class="register">
+							<div class="form-group">
+								<label for="username">Username</label>
+								<input type="text" class="form-control username" placeholder="Enter username" />
+							</div>
+							<div class="form-group">
+								<label for="email">Email address</label>
+								<input type="email" class="form-control email" placeholder="Enter email" />
+								<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+							</div>
+							<div class="form-group">
+								<label for="password">Password</label>
+								<input type="password" class="form-control password" placeholder="Password" />
+							</div>
+							<button type="submit" class="btn btn-primary submit">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal" tabindex="-1" role="dialog" id="loginModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Login</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form class="login">
+							<div class="form-group">
+								<label for="username">Username</label>
+								<input type="text" class="form-control username" placeholder="Enter username" />
+							</div>
+							<div class="form-group">
+								<label for="password">Password</label>
+								<input type="password" class="form-control password" placeholder="Password" />
+							</div>
+							<button type="submit" class="btn btn-primary submit">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal" tabindex="-1" role="dialog" id="videoModal">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Video</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<video id="video" class="video-js vjs-default-skin vjs-16-9" controls autoplay playinline></video>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/video.js/dist/video.js"></script>
+		<script>
+			$(function () {
+				/**
+				 * GLOBALS - set you demo url here remove the trailing slash example: http://54.70.196.235
+				 */
+				var url = "http://54.70.196.235";
+
+				/**
+				 * Checks if a token is set in local storage to determine if the user is logged in
+				 */
+				if (localStorage.getItem("token") === null) {
+					$(".logged_out").hide();
+				} else {
+					$(".logged_in").hide();
+				}
+
+				/**
+				 * Init initial load of the ui
+				 */
+				$.ajax({
+					type: "GET",
+					url: url + "/wp-json/wp/v2/content",
+					dataType: "json",
+					success: function (data, textStatus) {
+						var slider = data[Math.floor(Math.random() * data.length)];
+
+						$(".jumbotron").css({
+							background: "url(" + slider.images.landscape.url + ") no-repeat",
+							"background-position": "right",
+							"background-size": "cover"
+						});
+						$(".jumbotron").html('<div class="col-md-6 px-0"><h1 class="display-4 font-italic">' + slider.title.rendered + '</h1><p class="lead my-3 content">' + clean_content(slider.content.rendered, 80) + '</p><p class="lead mb-0"><a href="' + slider.id + '" class="watch text-white font-weight-bold">Watch video...</a></p></div>');
+
+						$(".main").empty();
+						$.each(data, function (key, val) {
+							$(".main").append('<div class="col-md-6"><div class="card flex-md-row mb-4 box-shadow h-md-250"><div class="card-body d-flex flex-column align-items-start"><strong class="d-inline-block mb-2 text-primary">All</strong><h3 class="mb-0">' + val.title.rendered + '</h3><div class="mb-1 text-muted">' + val.date + '</div><p class="card-text mb-auto">' + clean_content(val.content.rendered, 80) + '</p><a class="watch" href="' + val.id + '">Watch Video</a></div><img class="card-img-right flex-auto d-none d-md-block" src="' + val.images.portrait.url + '"/></div></div>');
+						});
+					},
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						console.log(textStatus + errorThrown);
+					}
+				});
+
+				/**
+				 * Populate the terms for the main menu
+				 */
+				$.ajax({
+					type: "GET",
+					url: url + "/wp-json/app/v1/terms",
+					dataType: "json",
+					success: function (data, textStatus) {
+						$.each(data, function (key, val) {
+							$(".navigation").append('<a class="navigation-item p-2 text-muted" data-title="' + val.name + '" href="' + val.term_id + '">' + val.name + "</a>");
+						});
+					},
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						console.log(textStatus + errorThrown);
+					}
+				});
+
+				/**
+				 * Menu button click to get content from term id
+				 */
+				$(document).on("click", ".navigation-item", function () {
+					event.preventDefault();
+					var id = $(this).attr("href");
+					var title = $(this).data("title");
+					$.ajax({
+						type: "GET",
+						url: url + "/wp-json/wp/v2/content?browse=" + id,
+						dataType: "json",
+						success: function (data, textStatus) {
+							$(".main").empty();
+							$.each(data, function (key, val) {
+								$(".main").append('<div class="col-md-6"><div class="card flex-md-row mb-4 box-shadow h-md-250"><div class="card-body d-flex flex-column align-items-start"><strong class="d-inline-block mb-2 text-primary">' + title + '</strong><h3 class="mb-0">' + val.title.rendered + '</h3><div class="mb-1 text-muted">' + val.date + '</div><p class="card-text mb-auto">' + clean_content(val.content.rendered, 80) + '</p><a class="watch" href="' + val.id + '">Watch Video</a></div><img class="card-img-right flex-auto d-none d-md-block" src="' + val.images.portrait.url + '"/></div></div>');
+							});
+						},
+						error: function (XMLHttpRequest, textStatus, errorThrown) {
+							console.log(textStatus + errorThrown);
+						}
+					});
+				});
+
+				/**
+				 * Open the watch video modal and check if the user is logged in and has access
+				 */
+				$(document).on("click", ".watch", function () {
+					event.preventDefault();
+
+					// Check for auth token
+					if (localStorage.getItem("token") === null) {
+						alert("Please login or sign up to view content");
+						return;
+					}
+
+					var id = $(this).attr("href");
+					$.ajax({
+						type: "POST",
+						url: url + "/wp-json/app/v1/access",
+						dataType: "json",
+						data: {
+							post_id: id
+						},
+						beforeSend: function (xhr) {
+							xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+						},
+						success: function (data, textStatus) {
+							if (data.status) {
+								// Check if the video has been purchased
+								if (data.purchased) {
+									$("#videoModal").modal("show");
+									var player = videojs("video");
+									player.src({
+										type: data.data.type,
+										src: data.data.src
+									});
+								} else {
+									alert(data.message);
+								}
+							} else {
+								localStorage.removeItem("token");
+								location.reload();
+							}
+						},
+						error: function (XMLHttpRequest, textStatus, errorThrown) {
+							console.log(textStatus + errorThrown);
+						}
+					});
+				});
+
+				/**
+				 * Pause video on modal close
+				 */
+				$("#videoModal").on("hidden.bs.modal", function () {
+					videojs("video").pause();
+				});
+
+				/**
+				 * Register a new user
+				 */
+				$(document).on("click", ".register .submit", function () {
+					event.preventDefault();
+					var username = $(".register .username").val();
+					var email = $(".register .email").val();
+					var password = $(".register .password").val();
+					$.ajax({
+						type: "POST",
+						url: url + "/wp-json/app/v1/register",
+						dataType: "json",
+						data: {
+							username: username,
+							email: email,
+							password: password
+						},
+						success: function (data, textStatus) {
+							$("#signupModal").modal("hide");
+							if (data.status) {
+								if (confirm("Successfully registered you can now login")) {
+									$("#loginModal").modal("show");
+								}
+							} else {
+								alert(data.message);
+							}
+						},
+						error: function (XMLHttpRequest, textStatus, errorThrown) {
+							console.log(textStatus + errorThrown);
+						}
+					});
+				});
+
+				/**
+				 * Login user and save auth token for use on video watch calls
+				 */
+				$(document).on("click", ".login .submit", function () {
+					event.preventDefault();
+					var username = $(".login .username").val();
+					var password = $(".login .password").val();
+					$.ajax({
+						type: "POST",
+						url: url + "/wp-json/jwt-auth/v1/token",
+						dataType: "json",
+						data: {
+							username: username,
+							password: password
+						},
+						success: function (data, textStatus) {
+							$("#loginModal").modal("hide");
+							if (data.success) {
+								localStorage.setItem("token", data.data.token);
+								location.reload();
+							} else {
+								alert(data.message);
+							}
+						},
+						error: function (XMLHttpRequest, textStatus, errorThrown) {
+							console.log(textStatus + errorThrown);
+						}
+					});
+				});
+
+				/**
+				 * Logout user
+				 */
+				$(document).on("click", ".logout", function () {
+					event.preventDefault();
+					localStorage.removeItem("token");
+					location.reload();
+				});
+			});
+
+			/**
+			 * Helper function to clean html and trim content
+			 */
+			function clean_content(str, limit) {
+				str = str.replace(/<[^>]*>?/gm, "");
+				if (str.length > limit) {
+					return str.substring(0, limit) + "...";
+				} else {
+					return str;
+				}
+			}
+		</script>
+	</body>
+</html>
