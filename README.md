@@ -1,4 +1,4 @@
-# Simple Mobile API Example
+# Simple API Example - Build Mobile & Smart TV Apps
 
 This is a very simple app to demonstrate how to use the Theme API to create mobile apps.
 
