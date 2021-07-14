@@ -19,3 +19,5 @@ All the standard wp rest api calls are included by default
 You dont need anything special installed to run this code simply replace the global url with your theme demo or live theme and open the html file in a browser.
 
 ### Video Tutorial
+
+[Watch Video Tutorial](https://www.youtube.com/watch?v=pP0w1oJKTug)
